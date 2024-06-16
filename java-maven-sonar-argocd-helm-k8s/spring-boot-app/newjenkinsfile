@@ -18,7 +18,7 @@ pipeline {
 stage('Push to nexus') {
       steps {
         withMaven(globalMavenSettingsConfig: 'nexus-cred', jdk: '', maven: '', mavenSettingsConfig: '', traceability: true) {
-         sh 'mvn deploy'
+         sh 'cd java-maven-sonar-argocd-helm-k8s/spring-boot-app && mvn deploy'
             }
     }
       }
