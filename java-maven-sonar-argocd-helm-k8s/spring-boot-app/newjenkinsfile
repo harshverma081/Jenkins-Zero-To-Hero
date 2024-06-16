@@ -17,10 +17,9 @@ pipeline {
 
 stage('Push to nexus') {
       steps {
-        sh 'ls -ltr'
-        // build the project and create a JAR file
-        sh 'cd java-maven-sonar-argocd-helm-k8s/spring-boot-app && mvn deploy'
-      }
+        withMaven(globalMavenSettingsConfig: 'nexus-cred', jdk: '', maven: '', mavenSettingsConfig: '', traceability: true) {
+         sh 'mvn deploy'
+}
     }
     stage('Static Code Analysis') {
       environment {
