@@ -19,8 +19,9 @@ stage('Push to nexus') {
       steps {
         withMaven(globalMavenSettingsConfig: 'nexus-cred', jdk: '', maven: '', mavenSettingsConfig: '', traceability: true) {
          sh 'mvn deploy'
-}
+            }
     }
+      }
     stage('Static Code Analysis') {
       environment {
         SONAR_URL = "http://13.126.3.80:9000/"
