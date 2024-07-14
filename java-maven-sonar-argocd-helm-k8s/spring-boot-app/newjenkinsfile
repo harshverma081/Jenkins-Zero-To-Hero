@@ -57,6 +57,6 @@ stage('Push to nexus') {
             }
         }
     } 
-  }
+  
 
               
