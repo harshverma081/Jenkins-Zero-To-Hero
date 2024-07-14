@@ -49,7 +49,7 @@ stage('Push to nexus') {
     }
       stage('Update Deployment File') {
        
-        }
+        
         steps {
                 withKubeConfig(caCertificate: '', clusterName: 'my-cluster', contextName: '', credentialsId: 'kube-cred', namespace: 'webapps', restrictKubeConfigAccess: false, serverUrl: 'https://9B8D37BC50E9E03E60C75796C5F82181.gr7.ap-south-1.eks.amazonaws.com') {
                          sh 'kubectl apply -f dep.yaml '
